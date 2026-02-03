@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #7a0000, #cc0000, #ff2e63);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* MEME DECORATIONS (replacing flowers) */
+.memeDecor {
+  position: fixed;
+  width: 190px;
+  opacity: 0.72;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px #000);
+  animation: float 7s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(10px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(-3deg); }
+}
+
+.m1 { top: 8px; left: 8px; }
+.m2 { bottom: 8px; right: 8px; }
+
+.gate {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #3a0000, #000);
+}
+
+.hidden { display: none; }
+
+.container { padding: 40px 20px; }
+
+.card {
+  background: rgba(0,0,0,0.48);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 720px;
+  backdrop-filter: blur(8px);
+  border: 1px solid #ff2e63;
+}
+
+button {
+  background: #ff1744;
+  border: none;
+  padding: 12px 18px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4569;
+  transform: scale(1.05);
+}
+
+.memeGate {
+  width: 250px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid #ff2e63;
+  transition: .3s;
+}
+
+.memeGate:hover { transform: scale(1.06); }
+
+</style>
+</head>
+<body>
+
+<!-- CORNER MEMES -->
+<img class="memeDecor m1" src="https://www.usmagazine.com/wp-content/uploads/2024/11/Nathan-Fillion-s-Bloopers-From-The-Rookie-Are-Too-Funny-See-His-Funniest-Outtakes-Goofy-Faces-135.jpg?w=1400&quality=86&strip=all" />
+
+<img class="memeDecor m2" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/09/Tim-Bradford-Park.jpg" />
+
+
+<!-- ENTRY GATE -->
+<div id="entry" class="gate">
+  <h2>unlock with THE sacred Brooklyn 99 meme</h2>
+
+  <img class="memeGate"
+   onclick="enterSite()"
+   src="https://i.pinimg.com/736x/aa/1d/8e/aa1d8eb535a035ed05c21e591288331d.jpg" 
+   alt="B99 meme" />
+
+  <p style="opacity:.7">Jake would approve this security system</p>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div id="main" class="container hidden">
+  <h1>Happy Birthday, Kalpita</h1>
+
+  <div class="card">
+    <p>
+      If this website were a song, it would feel like a Jeff Buckley guitar echo,
+      have the chaotic comfort of <b>The Office</b>, the warm chaos of <b>Brooklyn 99</b>,
+      the courage of <b>The Rookie</b>, and the power of a live <b>Metallica</b> riff.
+      And in the middle of all that noise — there would be you, graceful like classical Indian dance.
+    </p>
+
+    <button onclick="showMessage()">Tap for Birthday Magic</button>
+    <p id="surprise"></p>
+  </div>
+
+
+  <div class="card">
+    <h3>Mini Dance Just For You</h3>
+    <div id="dance">🙏 💃 ✨</div>
+    <button onclick="dance()">Make the dance move</button>
+  </div>
+
+
+  <div class="card">
+    <h3>Locked Episodes Unlocked</h3>
+    <p>
+       • Jeff Buckley at 2AM energy<br>
+       • Peralta level chaos<br>
+       • Jim looking at camera moments<br>
+       • Metallica main-character walk<br>
+       • Bharatanatyam aramandi elegance
+    </p>
+  </div>
+
+
+  <footer>made with too much effort and a very soft heart</footer>
+
+  <!-- FINAL BUTTON -->
+  <div class="card">
+    <button onclick="showFinal()">Click Here</button>
+  </div>
+</div>
+
+
+<!-- FINAL SCREEN -->
+<div id="final" class="gate hidden">
+  <h2>YOU ARE AN AMAZING HUMAN / GENIUS</h2>
+</div>
+
+
+<script>
+function enterSite(){
+  document.getElementById('entry').classList.add('hidden');
+  document.getElementById('main').classList.remove('hidden');
+}
+
+function showMessage() {
+  const lines = [
+    "Cooler than Jake Peralta’s heists.",
+    "Softer than a Jeff Buckley chorus.",
+    "Stronger than a Metallica drum fill.",
+    "Funnier than a Michael Scott meeting.",
+    "More elegant than an aramandi in Bharatanatyam."
+  ];
+
+  document.getElementById('surprise').innerText =
+    lines[Math.floor(Math.random() * lines.length)];
+}
+
+function dance() {
+  const el = document.getElementById('dance');
+  el.innerText = el.innerText === "🙏 💃 ✨" ? "💃✨🙏" : "🙏 💃 ✨";
+}
+
+function showFinal(){
+  document.getElementById('main').classList.add('hidden');
+  document.getElementById('final').classList.remove('hidden');
+}
+
+// cherry confetti
+setInterval(() => {
+  const c = document.createElement('div');
+  c.innerText = '❤';
+  c.style.position = 'fixed';
+  c.style.left = Math.random()*100 + 'vw';
+  c.style.top = '-10px';
+  c.style.transition = '4s';
+  document.body.appendChild(c);
+  setTimeout(()=>{ c.style.top = '110vh'; }, 100);
+  setTimeout(()=> c.remove(), 4000);
+}, 600);
+</script>
+
+</body>
+</html>
