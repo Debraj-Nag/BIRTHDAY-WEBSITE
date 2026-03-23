@@ -15,6 +15,7 @@ body {
   overflow-x: hidden;
 }
 
+/* MEME DECORATIONS (replacing flowers) */
 .memeDecor {
   position: fixed;
   width: 190px;
@@ -41,10 +42,6 @@ body {
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at center, #3a0000, #000);
-}
-
-#final {
-  background: url('https://images.pexels.com/photos/1157415/pexels-photo-1157415.jpeg') no-repeat center/cover;
 }
 
 .hidden { display: none; }
@@ -86,81 +83,100 @@ button:hover {
 }
 
 .memeGate:hover { transform: scale(1.06); }
+
 </style>
 </head>
-
 <body>
 
-<div id="ytMusic"></div>
+<!-- CORNER MEMES -->
+<img class="memeDecor m1" src="https://www.usmagazine.com/wp-content/uploads/2024/11/Nathan-Fillion-s-Bloopers-From-The-Rookie-Are-Too-Funny-See-His-Funniest-Outtakes-Goofy-Faces-135.jpg?w=1400&quality=86&strip=all" />
 
-<img class="memeDecor m1" src="https://www.usmagazine.com/wp-content/uploads/2024/11/Nathan-Fillion-s-Bloopers-From-The-Rookie-Are-Too-Funny-See-His-Funniest-Outtakes-Goofy-Faces-135.jpg" />
 <img class="memeDecor m2" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/09/Tim-Bradford-Park.jpg" />
 
-<!-- ENTRY -->
+
+<!-- ENTRY GATE -->
 <div id="entry" class="gate">
   <h2>unlock with THE sacred Brooklyn 99 meme</h2>
 
   <img class="memeGate"
    onclick="enterSite()"
-   src="https://i.pinimg.com/736x/aa/1d/8e/aa1d8eb535a035ed05c21e591288331d.jpg" />
+   src="https://i.pinimg.com/736x/aa/1d/8e/aa1d8eb535a035ed05c21e591288331d.jpg" 
+   alt="B99 meme" />
 
   <p style="opacity:.7">Jake would approve this security system</p>
 </div>
 
-<!-- MAIN -->
+
+<!-- MAIN CONTENT -->
 <div id="main" class="container hidden">
   <h1>Happy Birthday, Kalpita</h1>
 
   <div class="card">
     <p>
-      If this website were a song, it would feel like a Jeff Buckley echo,
-      have the chaos of The Office, Brooklyn 99 energy,
-      and Metallica power — with you at the center.
+      If this website were a song, it would feel like a Jeff Buckley guitar echo,
+      have the chaotic comfort of <b>The Office</b>, the warm chaos of <b>Brooklyn 99</b>,
+      the courage of <b>The Rookie</b>, and the power of a live <b>Metallica</b> riff.
+      And in the middle of all that noise — there would be you, graceful like classical Indian dance.
     </p>
 
     <button onclick="showMessage()">Tap for Birthday Magic</button>
     <p id="surprise"></p>
   </div>
 
+
   <div class="card">
-    <h3>Mini Dance</h3>
+    <h3>Mini Dance Just For You</h3>
     <div id="dance">🙏 💃 ✨</div>
-    <button onclick="dance()">Make it move</button>
+    <button onclick="dance()">Make the dance move</button>
   </div>
+
 
   <div class="card">
-    <button onclick="showFinal()">Final Message</button>
+    <h3>Locked Episodes Unlocked</h3>
+    <p>
+       • Jeff Buckley at 2AM energy<br>
+       • Peralta level chaos<br>
+       • Jim looking at camera moments<br>
+       • Metallica main-character walk<br>
+       • Bharatanatyam aramandi elegance
+    </p>
+  </div>
+
+
+  <footer>made with too much effort and a very soft heart</footer>
+
+  <!-- FINAL BUTTON -->
+  <div class="card">
+    <button onclick="showFinal()">Click Here</button>
   </div>
 </div>
 
-<!-- FINAL -->
+
+<!-- FINAL SCREEN -->
 <div id="final" class="gate hidden">
-  <h2>KALPITA MUKHERJEE, YOU ARE AMAZING ❤️</h2>
+  <h2>KALPITA MUKHERJEE, YOU ARE AN AMAZING HUMAN / GENIUS.
+    WHEN I SEE YOU,
+    Molecules ignite, I'm caught on fire
+Overwhelmed colliding atoms keep me from my sleep
+Chemicals electric through the wire
+Overloaded circuit buzzing you and me.
+  </h2>
 </div>
+
 
 <script>
 function enterSite(){
   document.getElementById('entry').classList.add('hidden');
   document.getElementById('main').classList.remove('hidden');
-
-  // FIXED iframe (no broken string)
-  document.getElementById('ytMusic').innerHTML = `
-    <iframe id="ytPlayer"
-      width="0" height="0"
-      src="https://www.youtube.com/embed/9X7WfFpY2FY?autoplay=1&mute=0&loop=1&playlist=9X7WfFpY2FY"
-      frameborder="0"
-      allow="autoplay">
-    </iframe>
-  `;
 }
 
 function showMessage() {
   const lines = [
-    "Cooler than Jake Peralta.",
+    "Cooler than Jake Peralta’s heists.",
     "Softer than a Jeff Buckley chorus.",
-    "Stronger than Metallica.",
-    "Funnier than Michael Scott.",
-    "Graceful like Bharatanatyam."
+    "Stronger than a Metallica drum fill.",
+    "Funnier than a Michael Scott meeting.",
+    "More elegant than an aramandi in Bharatanatyam."
   ];
 
   document.getElementById('surprise').innerText =
@@ -177,7 +193,7 @@ function showFinal(){
   document.getElementById('final').classList.remove('hidden');
 }
 
-// Floating hearts
+// cherry confetti
 setInterval(() => {
   const c = document.createElement('div');
   c.innerText = '❤';
