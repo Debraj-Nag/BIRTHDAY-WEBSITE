@@ -15,7 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-/* MEME DECORATIONS (replacing flowers) */
 .memeDecor {
   position: fixed;
   width: 190px;
@@ -42,6 +41,10 @@ body {
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at center, #3a0000, #000);
+}
+
+#final {
+  background: url('https://images.pexels.com/photos/1157415/pexels-photo-1157415.jpeg?cs=srgb&dl=baby-s-breath-flower-beautiful-beautiful-flowers-bunch-of-1157415.jpg&fm=jpg') no-repeat center center/cover;
 }
 
 .hidden { display: none; }
@@ -88,11 +91,12 @@ button:hover {
 </head>
 <body>
 
+<!-- YOUTUBE BACKGROUND AUDIO (hidden) -->
+<div id="ytMusic"></div>
+
 <!-- CORNER MEMES -->
 <img class="memeDecor m1" src="https://www.usmagazine.com/wp-content/uploads/2024/11/Nathan-Fillion-s-Bloopers-From-The-Rookie-Are-Too-Funny-See-His-Funniest-Outtakes-Goofy-Faces-135.jpg?w=1400&quality=86&strip=all" />
-
 <img class="memeDecor m2" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/09/Tim-Bradford-Park.jpg" />
-
 
 <!-- ENTRY GATE -->
 <div id="entry" class="gate">
@@ -105,7 +109,6 @@ button:hover {
 
   <p style="opacity:.7">Jake would approve this security system</p>
 </div>
-
 
 <!-- MAIN CONTENT -->
 <div id="main" class="container hidden">
@@ -123,13 +126,11 @@ button:hover {
     <p id="surprise"></p>
   </div>
 
-
   <div class="card">
     <h3>Mini Dance Just For You</h3>
     <div id="dance">🙏 💃 ✨</div>
     <button onclick="dance()">Make the dance move</button>
   </div>
-
 
   <div class="card">
     <h3>Locked Episodes Unlocked</h3>
@@ -142,26 +143,30 @@ button:hover {
     </p>
   </div>
 
-
   <footer>made with too much effort and a very soft heart</footer>
 
-  <!-- FINAL BUTTON -->
   <div class="card">
     <button onclick="showFinal()">Click Here</button>
   </div>
 </div>
-
 
 <!-- FINAL SCREEN -->
 <div id="final" class="gate hidden">
   <h2>KALPITA MUKHERJEE, YOU ARE AN AMAZING HUMAN / GENIUS</h2>
 </div>
 
-
 <script>
 function enterSite(){
   document.getElementById('entry').classList.add('hidden');
   document.getElementById('main').classList.remove('hidden');
+
+  // Inject YouTube player AFTER user click (so autoplay works)
+  document.getElementById('ytMusic').innerHTML = `
+    <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/9X7WfFpY2FY?autoplay=1&loop=1&playlist=9X7WfFpY2FY"
+    frameborder="0"
+    allow="autoplay"></iframe>
+  `;
 }
 
 function showMessage() {
@@ -187,7 +192,6 @@ function showFinal(){
   document.getElementById('final').classList.remove('hidden');
 }
 
-// cherry confetti
 setInterval(() => {
   const c = document.createElement('div');
   c.innerText = '❤';
@@ -203,4 +207,3 @@ setInterval(() => {
 
 </body>
 </html>
-
